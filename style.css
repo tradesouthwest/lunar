@@ -1,0 +1,452 @@
+/*
+Theme Name:  Lunar
+Theme URI:   https://classicpress-themes/
+Author:      Tradesouthwest
+Author URI:  https://tradesouthwest.com/
+Description: Solo is a minimalism tiny flex based theme templated for general website use. Basic content sections are full width. Footer is full width with three widget sections. Options include content padding; background-color; custom header text and link; link color; text alignment; Demo at https://leadspilot.com/classicpress/
+Requires PHP: 7.4
+Requires CP:  1.4
+Version:     1.0.1
+License:     GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags:        one-column, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, flexible-header,sticky-post, threaded-comments, translation-ready, blog
+Text Domain: solo
+
+This theme, like ClassicPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
+/* ==================================
+    CSS Index         
+===================================
+* I  - Page Model
+* II - Content Elements
+* III - Article Content 
+* IV - Navigation Elements
+* V - WP Requires
+* VI - Media Queries
+===================================
+*/
+
+/* ********************************************************* I - Page Model 
+ */
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+:root {
+	--font-serifs: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	--color-primary-x-light: #fafafa;
+}
+
+body {
+	font-size: 16px;
+	font-family: var(--font-serifs);
+	width: 98%;
+	margin: 0 auto;
+    color: #444444;
+	background: #f8f8f8;
+}
+ /* Flexbox container */
+    .container {
+    display: flex;
+      flex-direction: column;
+      height: 100%;
+     width: 100%;
+    }
+
+    /* Header */
+    .header,
+    .footer-base {
+      flex: 1 1 auto;
+      width: 100%;
+      padding: 1rem;
+    }
+
+    /* Middle section */
+    .content {
+      flex: 2 1 66.66%;
+      display: inline-flex;
+      padding: 1rem;
+    }
+
+    /* Right sidebar */
+    .sidebar {
+     flex: 1 1 33.33%;
+      display: inline-flex;
+      padding: 1rem;
+      
+    }
+
+    /* Footer */
+ .site-footer{
+ display: flex;
+      flex-direction: row;
+      height: 100%;
+      width: 100%;
+      }
+.footer-section{
+ flex: 1 1 100%;
+        width: 100%;
+}
+.content,
+.sidebar{
+padding: 15px 30px;
+}
+.entry-content{
+display:flex;
+flex-direction: column;
+justify-content: start;
+}
+ /* Responsive layout */
+    @media screen and (min-width: 1024px) {
+    body{
+    max-width:1440px;
+    }
+      .container {
+        flex-direction: row;
+      }
+      .content,
+      .sidebar {
+        display:flex;
+        border-top:3px solid #ddd;
+      }
+     
+.footer-section{
+flex: 1 1 33.33%;
+      width: 33.33%;
+      padding: 1rem;
+}
+    }
+/* ************************************************** II - Content Elements
+*/
+/*
+ Avoid text overflows
+*/
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+  line-height: 1.485;
+  font-weight:lighter;
+}
+img {
+	border-style: none; /* @source normalize.css */
+	height: auto;
+	max-width: 100%;
+	/* Adhere to container width. 
+	vertical-align: middle; */
+}
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	height: 1px;
+	overflow: hidden;
+	position: absolute !important;
+	width: 1px;
+	word-wrap: normal !important;
+}
+/* must have higher specificity than alternative color schemes inline styles */
+.skip-link {
+	background-color: #f1f1f1;
+	box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2);
+	color: #21759b;
+	display: block;
+	font-family: inherit;
+	font-size: 14px;
+	font-weight: 700;
+	left: -9999em;
+	outline: none;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	text-transform: none;
+	top: -9999em;
+}
+
+.logged-in .skip-link {
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.2);
+	font-family: "Open Sans", sans-serif;
+}
+
+.skip-link:focus {
+	clip: auto;
+	height: auto;
+	left: 6px;
+	top: 7px;
+	width: auto;
+	z-index: 100000;
+}
+a:active,
+a:hover {
+    outline: 0;
+}
+hr{
+  height: 0;
+  border: 1px solid #aaa;
+  width: 100%;
+  display: block;
+}
+hr:before,
+hr:after{
+  content: " ";
+  display: table;
+  width: 100%;
+  clear:both;
+}
+pre {
+  display: block;
+  padding: 9.5px;
+  margin: 0 0 10px;
+  font-size: 13px;
+  line-height: 1.42857143;
+  color: #333;
+  word-break: break-all;
+  word-wrap: break-word;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+label + input,
+label + textarea,
+label + select {
+	display: flex;
+	flex-direction: column;
+	border: 1px solid #818181;
+}
+
+label {
+	display: flex;
+	margin-bottom: 8px;
+}
+
+a {
+	color: #029;
+}
+
+a:hover {
+	opacity: .86;
+}
+.brd-lite{
+border: 1px solid #eee;
+}
+
+.bkg-dark a {
+	color: #fefefe;
+}
+
+.bkg-warn {
+	background: salmon;
+}
+
+.bkg-high {
+	background: #ffffda;
+}
+
+.bkg-dark {
+	background: #3d3d3d;
+	color: white;
+}
+
+.bkg-med {
+	background: #cecece;
+}
+
+.bkg-lite {
+	background: #efefef;
+}
+
+.bkg-noted {
+	background: #daeff1;
+}
+
+figure {
+	display: flex;
+	flex-direction: column;
+}
+/* figcaption should be inside of figure tag */
+figcaption {
+	display: flex;
+	flex-direction: row;
+	position: relative;
+	top: 0;
+	text-align: center;
+	justify-content: center;
+	min-height: 1.5em;
+	line-height: 1.5;
+}
+
+.centered {
+	display: flex;
+	margin: 0 auto;
+	text-align: center;
+	justify-content: center;
+}
+
+.no-border {
+	border-color: transparent;
+}
+
+.dark-border {
+	border-color: #2d2d2d;
+}
+
+.med-border {
+	border-color: #aaaaaa;
+}
+
+.lite-border {
+	border-color: #efefef;
+}
+
+.dash-border {
+	border-style: dashed;
+	border-color: green;
+} 
+
+/* ********************************************************* III - Article Content 
+ */
+.blog .featured-img-container img{
+max-height: 480px;
+}
+.single .featured-img-container img{
+display: flex;
+margin: 0 auto;
+}
+.featured-img-container figcaption{
+background: #eee;
+color: #555
+}
+/* ********************************************************* IV - Navigation Elements  
+ */
+.nav-container {
+	position: unset;
+	margin: 0;
+	height: 100%;
+	width: 100%;
+}
+
+.nav-container ul {
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	justify-content: space-around;
+}
+
+.nav-container ul li {
+	list-style: none;
+	font-size: 1rem;
+}
+
+.nav-container li {
+	display: inherit;
+	position: relative;
+	padding: 0;
+	white-space: normal;
+}
+.nav-container ul li ul{
+border-right: thin dashed #aaa;		
+border-bottom: thin dashed #aaa;		
+border-top: thin dashed #aaa;		
+margin-left: -1px;
+margin-top: .222em;
+background: rgba(122,122,122, .42);
+ 
+}
+
+.nav-container a {
+	padding: 5px 8px;
+	background: transparent;
+}
+/* Content below nav can be wrapped in `main` to allow for z-index */
+main {
+	position: relative;
+	z-index: 1;
+}
+
+/* ************************************************** V - WP Requires
+*/
+
+/* ************************************************** VI - Media Queries
+*/
+@media all and (min-width: 1024px) {
+	.nav-container {
+		position: relative;
+		z-index: 99999;
+	}
+
+	.nav-container ul {
+		justify-content: start;
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+
+	.nav-container a {
+		padding: 8px 12px;
+		background: var(--navback);
+		border: thin solid #aaa;
+		width: calc( 120px + 2vw );
+		min-height: 2.67em;
+		height: fit-content;
+		white-space: pre-line;
+	}
+
+	.nav-container li {
+		height: auto;
+	}
+
+	.nav-container ul li {
+		font-size: .825rem;
+		/* justify-content: space-between; */;
+	}
+
+	.nav-container ul li ul li a {
+		border: 1px solid rgba(15,15,15,.96);
+	}
+
+	.nav-container ul li ul ul {
+		z-index: 99990;
+		top: calc( 1em + 16px );
+		margin-left: calc( 3em + 24px );
+	}
+
+	.nav-container ul li ul {
+		position: absolute;
+		justify-content: space-around;
+		margin-left: 0;
+		top: calc( 1.75em + .825rem );
+		z-index: 99800;
+		background: none;
+		border: none;
+		flex-direction: column;
+		visibility: hidden;
+		opacity: 0;
+		transition: visibility 0s linear 400ms, opacity 400ms;
+		
+	}
+
+	.nav-container ul li:hover ul,
+	.nav-container ul li:focus ul,
+	.nav-container ul li:focus-within ul {
+		visibility: visible;
+		opacity: 1;
+		transition: visibility 0s linear 0s, opacity 400ms;
+	}
+
+	.nav-container ul li ul li li {
+		visibility: hidden;
+		opacity: 0;
+		transition: visibility 0s linear 400ms, opacity 400ms;
+	}
+
+	.nav-container ul li ul li:hover li,
+	.nav-container ul li ul li:focus li,
+	.nav-container ul li ul li:focus-within li {
+		visibility: visible;
+		opacity: 1;
+		transition: visibility 0s linear 0s, opacity 400ms;
+	}
+}
+
+
