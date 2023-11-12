@@ -1,32 +1,66 @@
 <?php
 /**
- * The main template file
+ * The template for displaying pages
  *
- * This is the most generic template file in a WordPress theme
- * and one of the two required files for a theme (the other being style.css).
- * It is used to display a page when nothing more specific matches a query.
- * E.g., it puts together the home page when no home.php file exists.
- *
- * @link https://codex.wordpress.org/Template_Hierarchy
+ * This is the template that displays all pages by default.
+ * Please note that this is the WordPress construct of pages and that
+ * other "pages" on your ClassicPress site will use a different template.
  *
  * @package solo
- * @since 1.0
+ * @since solo 1.0
  */
 
 get_header(); ?>
-<section class="container">
-<div class="content">
+  
+<main id="site-content" class="main-default solo-single" aria-label="Start of content">
+    <section aria-labelledby="article to read" class="section-content">
 
-    <?php get_template_part( 'post', 'content' ); ?>
+        <?php while ( have_posts() ) : the_post(); ?>
+        
+        <div class="solo-loop">
+            <h2 class="article-heading"><?php the_title(); ?></h2>
+            
+            <div class="solo-featured-excerpt">
 
-</div>
- 
-    <div class="sidebar">
+                <?php do_action( 'solo_render_attachment' ); ?>
 
-        <?php get_sidebar(); ?>
-                	
-    </div>
+                <span class="solo-inlined-excerpt">
+                    <?php 
+                    if ( has_excerpt() ) {
+                        the_excerpt();
+                    } ?>
+                </span>
+            
+            </div>
 
-</div>
-</section>
+                <div class="inner_content">
+
+                    <?php the_content( ); ?>
+
+                </div>
+
+            <aside class="after-content">
+                <p class="after-cats"><span><small><?php esc_html_e('By: ', 'solo'); ?></span> 
+                    <em><?php the_author(); ?></em></small>
+                | <span><small><?php esc_html_e('Categorized as: ', 'solo'); ?></span> 
+                    <em><?php the_category( ' &bull; ' ); ?></em></small>
+                | <span><small><?php esc_html_e('Keys: ', 'solo'); ?></span> 
+                    <em><?php the_tags( ' ' ); ?></em></small>
+                | <span><small><?php esc_html_e('Added on: ', 'solo'); ?></span> 
+                    <em><?php the_date(); ?></em></small></p>
+            </aside>
+
+            <?php 
+            // If comments are open or we have at least one comment, load up the comment template.
+			if ( comments_open() || get_comments_number() ) {
+				comments_template();
+			} ?>
+
+        </div>
+            
+        <?php endwhile; ?>
+
+    </section>
+</main>
+
 <?php get_footer(); ?>
