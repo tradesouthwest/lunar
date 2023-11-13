@@ -10,7 +10,7 @@ Tags: two-columns, translation-ready
 
 == Description ==
 
-Lunar is a theme that you can look up to and smile at.
+Lunar is a theme that you can look up to and smile at. Demo at https://demos.tradesnet.us/
 
 
 == Features ==

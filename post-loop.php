@@ -30,7 +30,7 @@
 
                     <div class="meta-foot">
                             
-                            <p>info</p>
+                            <?php do_action( 'lunar_metafooter_short' ); ?>
     
                     </div>
 	

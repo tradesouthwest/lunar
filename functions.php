@@ -40,6 +40,8 @@ add_action( 'wp_enqueue_scripts',       'lunar_theme_enqueue_styles' );
 add_action( 'widgets_init',             'lunar_theme_widgets_init' );
 // A5
 add_action( 'lunar_excerpt_inloop', 'lunar_excerpt_inloop_render' );
+// A6
+add_action( 'lunar_metafooter_short', 'lunar_metafooter_short_render' );
 
 /**
  * Add backwards compatibility support for wp_body_open function.
@@ -248,11 +250,33 @@ function lunar_theme_custom_logo() {
  * Strip content to only display x number of characters
  *
  * @since 1.0.0
+ * wp_kses_post( strip_shortcodes( wp_strip_all_tags( 
  */
 function lunar_excerpt_inloop_render()
 {
-    $charas = '300';
-    $article_data = substr( get_the_content(), 0, $charas );
-    echo esc_html( wp_strip_all_tags( $article_data ) );
+     if ( is_main_query() && ! is_singular() ) {
+        $length = 500;
+    $article_data = substr( get_the_content(), 0, absint( $length ) );
+    
+    echo wp_kses_post( strip_shortcodes( wp_strip_all_tags( $article_data ) ) );
+    }
+    return false;
+}
+
+/**
+ * Display shortened meta data for blog excerpts
+ *
+ * @since 1.0.0
+ */
+function lunar_metafooter_short_render()
+{  
+    ob_start();
+    ?>
+    <aside class="after-excerpt">
+        <p><small><?php esc_html_e( 'By: ', 'lunar'); ?></span> 
+        <em><?php echo esc_html( get_the_author() ); ?></em></small></p>
+            </aside>
+            <?php
+            echo ob_get_clean();
 }
 
