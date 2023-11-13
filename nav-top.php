@@ -4,7 +4,7 @@
                         array(
                             'theme_location'  => 'primary-menu',
                             'depth'          => 3,
-                            'container'     => 'div',
+                            'container'     => 'nav',
                             'menu_class'   => 'page-nav',
                             'fallback_cb' => 'wp_page_menu',
                         )

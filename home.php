@@ -15,18 +15,17 @@
 
 get_header(); ?>
 <main class="container">
-<div class="content">
+    <div class="content">
 
-    <?php get_template_part( 'post', 'loop' ); ?>
+        <?php get_template_part( 'post', 'loop' ); ?>
 
-</div>
- 
-    <div class="sidebar">
-
-        <?php get_sidebar(); ?>
-                	
     </div>
+     
+        <div class="sidebar">
 
-</div>
+            <?php get_sidebar(); ?>
+                    	
+        </div>
+
 </main>
 <?php get_footer(); ?>

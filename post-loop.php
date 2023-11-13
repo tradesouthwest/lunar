@@ -6,14 +6,15 @@
  * @since Lunar 1.0
  */
 ?>
-	<div class="entry-content">
+<section class="entry-content">
     <?php if ( have_posts() ) : ?>
-        <?php while ( have_posts() ) :
-            the_post(); ?>
+        <?php while ( have_posts() ) : the_post(); ?>
 
         <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>		
 
-        	<?php the_title( sprintf( '<h2 class="entry-title-article"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
+        	<header>
+        	    <?php the_title( sprintf( '<h2 class="entry-title-article"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
+       	    </header>
 	
                 <figure class="featured-img-container">
         
@@ -23,10 +24,8 @@
 
                 <div class="excerpt-content">
 
-                    <?php
-                     $article_data = substr(get_the_content(), 0, 300);
-echo $article_data;
-    ?>
+                    <?php do_action( 'lunar_excerpt_inloop' ); ?>
+                    
                 </div>
 
                     <div class="meta-foot">
@@ -43,7 +42,7 @@ echo $article_data;
 			echo "---------------------- nothing to see here -----------------------";
 		endif;
 		?>
-    <nav>
+        <nav>
         <?php 
 			// Previous/next page navigation.
 			the_posts_pagination(
@@ -54,5 +53,6 @@ echo $article_data;
 				)
 			);
 ?>
-</nav>
+        </nav>
+</section>
 		

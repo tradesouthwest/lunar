@@ -1,48 +1,31 @@
-<?php
+  <?php
 /**
- * The template for displaying pages
+ * The main template file
  *
- * This is the template that displays all pages by default.
- * Please note that this is the WordPress construct of pages and that
- * other "pages" on your WordPress site will use a different template.
+ * This is the most generic template file in a WordPress theme
+ * and one of the two required files for a theme (the other being style.css).
+ * It is used to display a page when nothing more specific matches a query.
+ * E.g., it puts together the home page when no home.php file exists.
+ *
+ * @link https://codex.wordpress.org/Template_Hierarchy
  *
  * @package solo
- * @since solo 1.0.1
+ * @since 1.0
  */
 
 get_header(); ?>
+<section class="container">
+    <div class="content">
 
-<main id="site-content" class="main-default solo-single" aria-label="Start of content">
-    <section aria-labelledby="page" class="section-content">
-        
-    <?php if ( have_posts() ) : ?>
-        <div class="solo-loop">
+        <?php get_template_part( 'post', 'content' ); ?>
 
-        <?php while ( have_posts() ) : the_post(); ?>
+    </div>
      
-        <div class="inner_content">
+        <div class="sidebar">
 
-            <?php do_action( 'solo_render_attachment' ); ?>
-
-            <?php the_content( '', true ); ?>
-
+            <?php get_sidebar(); ?>
+                    	
         </div>
-        <?php 
-        do_action( 'solo_page_comments_allow' );
-        ?>
-        <?php endwhile; ?>
-    
-    <?php else : ?>
-            
-            <div class="post-content">
-		        
-            <?php echo esc_url( home_url('/') ); ?>
-            
-            </div>
-        </div>
-	<?php endif; ?>
-    
-    </section>
-</main>
 
+</section>
 <?php get_footer(); ?>
