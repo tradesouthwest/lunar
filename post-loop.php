@@ -36,12 +36,19 @@
 	
 		</article>
 
-        <?php endwhile; 
-        	// If no content, include the "No posts found" template.
-		else :
-			echo "---------------------- nothing to see here -----------------------";
-		endif;
-		?>
+        <?php 
+        endwhile; 
+        
+		else : ?>
+
+			<div class="post-content">
+		        
+                <?php echo esc_url( home_url('/') ); ?>
+            
+            </div>
+
+        <?php
+		endif; ?>
         <nav>
         <?php 
 			// Previous/next page navigation.

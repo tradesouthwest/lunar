@@ -44,11 +44,10 @@
                 printf( '<small>%s &copy; %s</small>',
                     bloginfo( 'name' ),
                     esc_html( gmdate( 'Y' ) ) 
-                ); ?></a>
-                <span class="solo-poweredby"> | Powered by <em>ClassicPress</em> </span></small>
+                ); ?></a></small>
             </div>
             <div class="upto">
-                <a class="back_to_top" title="<?php esc_attr_e('Top of page link', 'solo'); ?>"><sup>^</sup></a>
+                <a class="back_to_top" title="<?php esc_attr_e('Top of page link', 'lunar'); ?>"><sup>^</sup></a>
             </div>
         </div>
         

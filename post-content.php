@@ -21,18 +21,19 @@
                 <?php the_post_thumbnail(); ?>
                 <figcaption>
             
-                   <?php echo wp_get_attachment_caption(get_post_thumbnail_id()); ?>
+                   <?php echo esc_html( wp_get_attachment_caption( get_post_thumbnail_id() ) ); ?>
                 </figcaption>
             </figure>
-            <?php }  
-            ?>
+            <?php 
+            } ?>
                 <div class="inner-article-content">
 
                     <?php the_content( ); ?>
-                         <p><?php wp_link_pages(	array(
-				'before' => '<div class="page-link"><span>' . __( 'Pages:', 'tinydancer' ) . '</span>',
-				'after'  => '</div>', 
-                ) ); ?></p>
+                         <p><?php 
+                         wp_link_pages(	array(
+            				'before' => '<div class="page-link"><span>' . __( 'Pages:', 'lunar' ) . '</span>',
+			            	'after'  => '</div>', 
+                        ) ); ?></p>
                 </div>
                 
                 <?php 

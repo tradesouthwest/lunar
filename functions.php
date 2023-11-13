@@ -125,7 +125,7 @@ endif;
  *
  * @since Classic Sixteen 1.0
  */
-function solo_theme_content_width() 
+function lunar_theme_content_width() 
 {
 	$GLOBALS['content_width'] = apply_filters( 'lunar_content_width', 480 );
 }
@@ -184,9 +184,9 @@ function lunar_theme_widgets_init()
 	
 	register_sidebar(
 		array(
-			'name'          => __( 'Footer Section One', 'solo' ),
+			'name'          => __( 'Footer Section One', 'lunar' ),
 			'id'            => 'footer-one',
-			'description'   => __( 'Appears at the bottom of the content on posts and pages.', 'solo' ),
+			'description'   => __( 'Appears at the bottom of the content on posts and pages.', 'lunar' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
@@ -196,9 +196,9 @@ function lunar_theme_widgets_init()
 
 	register_sidebar(
 		array(
-			'name'          => __( 'Footer Section Two', 'solo' ),
+			'name'          => __( 'Footer Section Two', 'lunar' ),
 			'id'            => 'footer-two',
-			'description'   => __( 'Appears at the bottom of the content on posts and pages.', 'solo' ),
+			'description'   => __( 'Appears at the bottom of the content on posts and pages.', 'lunar' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
@@ -208,9 +208,9 @@ function lunar_theme_widgets_init()
 
     register_sidebar(
 		array(
-			'name'          => __( 'Footer Section Three', 'solo' ),
+			'name'          => __( 'Footer Section Three', 'lunar' ),
 			'id'            => 'footer-three',
-			'description'   => __( 'Appears at the bottom of the content on posts and pages.', 'solo' ),
+			'description'   => __( 'Appears at the bottom of the content on posts and pages.', 'lunar' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
@@ -253,6 +253,6 @@ function lunar_excerpt_inloop_render()
 {
     $charas = '300';
     $article_data = substr( get_the_content(), 0, $charas );
-    echo wp_strip_all_tags( $article_data );
+    echo esc_html( wp_strip_all_tags( $article_data ) );
 }
 

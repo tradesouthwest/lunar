@@ -27,7 +27,7 @@
     <?php wp_body_open(); ?>
 
     <a class="skip-link screen-reader-text" aria-label="first content" href="#sitecontent">
-        <?php esc_html_e( 'Skip to content', 'solo' ); ?>
+        <?php esc_html_e( 'Skip to content', 'lunar' ); ?>
     </a>
     
         <header class="header">
