@@ -72,6 +72,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
      height: 100%;
      width: 100%;
      align-items: first baseline;
+     border-top: 3px solid #ddd;
 }
  .footer-section{
      flex: 1 1 100%;
