@@ -48,7 +48,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
 /* Header */
  .header, .footer-base {
      display: flex;
-     flex: 1 1 auto;
+    flex: 1 1 auto;
      width: 100%;
      padding: 1rem;
 
@@ -92,6 +92,18 @@ Use it to make something cool, have fun, and share what you've learned with othe
      flex-direction: column;
      justify-content: start;
 }
+.site-heading{
+    color: inherit;
+}
+.site-title-heading { 
+   width: 100%;
+}
+.lunar-row{
+    display:flex;
+    width:100%;
+    flex-direction: column;
+}
+
 /* Responsive layout */
  @media screen and (min-width: 1024px) {
      body{
@@ -99,6 +111,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
     }
      .container {
          flex-direction: row;
+         width: 100%;
     }
      .content, .sidebar {
          display:flex;
@@ -108,6 +121,15 @@ Use it to make something cool, have fun, and share what you've learned with othe
          flex: 1 1 33.33%;
          width: 33.33%;
          padding: 1rem;
+    }
+    .site-title-heading { 
+        width: 50%;
+        height: 100px;
+    }
+    .lunar-row{
+    flex-direction: row;
+    flex-wrap: wrap;
+  width: 100%;
     }
 }
 /* ************************************************** II - Content Elements */
@@ -279,9 +301,41 @@ Use it to make something cool, have fun, and share what you've learned with othe
     border-radius: 50%;
     cursor: pointer;
 }
+.site-description{
+    display: flex;
+    padding-top: 2em;
+}
+.site-title a{
+    text-decoration: none;
+    text-shadow: 1px 1px 1px #eee, -1px -1px 2px #eee;
+}
+.site-title-heading.tagline-top{
+    display: flex;
+}
+.site-search{
+    align-self: baseline;
+    margin-left: auto;
+}
+.site-search .searchform,
+.site-search .searchform div{
+    width: 100%;
+    display: inline-flex;
+}
+.site-heading{
+    background-size: 100% auto;
+}
+.site-title{
+    margin-left:.5em;
+}
 /* ********************************************************* III - Article Content */
- .blog .featured-img-container img{
-     max-height: 480px;
+.blog .featured-img-container {
+    max-height: 320px;
+    text-align: center;
+    overflow: hidden;
+}
+.blog .featured-img-container img{
+     max-height: 320px;
+     
 }
  .single .featured-img-container img{
      display: flex;

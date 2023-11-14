@@ -14,7 +14,8 @@
  */
 
 get_header(); ?>
-<section class="container">
+
+<section class="container lunar-width-control">
     <div class="content">
 
         <?php get_template_part( 'post', 'content' ); ?>
@@ -28,4 +29,5 @@ get_header(); ?>
         </div>
 
 </section>
+
 <?php get_footer(); ?>

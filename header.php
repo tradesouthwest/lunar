@@ -29,10 +29,12 @@
     <a class="skip-link screen-reader-text" aria-label="first content" href="#sitecontent">
         <?php esc_html_e( 'Skip to content', 'lunar' ); ?>
     </a>
-    
-        <header class="header">
-    
+    <div class="container">
+        <header class="header lunar-row">
+        
+            <?php get_template_part( 'top', 'section' ); ?>
             <?php get_template_part( 'nav', 'top' ); ?>
     
         </header>
+    </div>
 

@@ -1,4 +1,5 @@
-<div class="nav-container bkg-dark">
+<div class="lunar-row">
+    <div class="nav-container bkg-dark">
 			  <?php
                     wp_nav_menu(
                         array(
@@ -9,4 +10,5 @@
                             'fallback_cb' => 'wp_page_menu',
                         )
                     ); ?>
+    </div>
 </div> 
