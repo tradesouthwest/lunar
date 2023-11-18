@@ -58,12 +58,24 @@ Use it to make something cool, have fun, and share what you've learned with othe
      flex: 2 1 66.66%;
      display: inline-flex;
      padding: 1rem;
+     overflow-x: hidden;
+}
+.content pre{
+    overflow-x: scroll;
+    max-width: 100%;
+    white-space: pre-wrap;
+}
+/* Content below nav can be wrapped in `main` to allow for z-index */
+ main {
+     position: relative;
+     z-index: 1;
 }
 /* Right sidebar */
  .sidebar {
      flex: 1 1 33.33%;
      display: inline-flex;
      padding: 1rem;
+     background: #f4f4f4
 }
 /* Footer */
  .site-footer{
@@ -72,7 +84,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
      height: 100%;
      width: 100%;
      align-items: first baseline;
-     border-top: 3px solid #ddd;
+     border-top: 2px solid #ddd;
 }
  .footer-section{
      flex: 1 1 100%;
@@ -112,11 +124,9 @@ Use it to make something cool, have fun, and share what you've learned with othe
     }
      .container {
          flex-direction: row;
-         width: 100%;
     }
      .content, .sidebar {
          display:flex;
-         border-top:3px solid #ddd;
     }
      .footer-section{
          flex: 1 1 33.33%;
@@ -128,9 +138,9 @@ Use it to make something cool, have fun, and share what you've learned with othe
         height: 100px;
     }
     .lunar-row{
-    flex-direction: row;
-    flex-wrap: wrap;
-  width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
     }
 }
 /* ************************************************** II - Content Elements */
@@ -138,15 +148,13 @@ Use it to make something cool, have fun, and share what you've learned with othe
  p, h1, h2, h3, h4, h5, h6 {
      overflow-wrap: break-word;
      line-height: 1.485;
-     font-weight:lighter;
 }
  img {
      border-style: none;
     /* @source normalize.css */
      height: auto;
      max-width: 100%;
-    /* Adhere to container width. vertical-align: middle;
-     */
+    /* Adhere to container width. vertical-align: middle; */
 }
  .screen-reader-text {
      clip: rect(1px, 1px, 1px, 1px);
@@ -304,7 +312,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
 }
 .site-description{
     display: flex;
-    padding-top: 2em;
+    padding-top: 1em;
 }
 .site-title a{
     text-decoration: none;
@@ -312,10 +320,11 @@ Use it to make something cool, have fun, and share what you've learned with othe
 }
 .site-title-heading.tagline-top{
     display: flex;
+    padding: .8em;
 }
 .site-search{
-    align-self: baseline;
     margin-left: auto;
+    position: relative;
 }
 .site-search .searchform,
 .site-search .searchform div{
@@ -335,7 +344,9 @@ Use it to make something cool, have fun, and share what you've learned with othe
     overflow: hidden;
 }
 .blog .featured-img-container img{
-     max-height: 320px;
+    height: 320px;
+    width: fit-content;
+    margin: 0 auto;
      
 }
  .single .featured-img-container img{
@@ -346,8 +357,16 @@ Use it to make something cool, have fun, and share what you've learned with othe
      background: rgba(252,252,252,.4);
      color: #555 
 }
-.post.format-standard{
-    border-bottom: 2px solid #ddd;
+.post.format-standard:after{
+    content: "";
+    width: 15%;
+    margin: 0 auto;
+    display: block;
+    height: 1px;
+    border-bottom: 1px solid #ddd;
+}
+.blog .excerpt-content{
+    max-width: 90%;
 }
 /* ********************************************************* IV - Navigation Elements */
  .nav-container {
@@ -355,6 +374,8 @@ Use it to make something cool, have fun, and share what you've learned with othe
      margin: 0;
      height: 100%;
      width: 100%;
+     border-top: 2px solid #ddd;
+     padding-top: 1em;
 }
  .nav-container ul {
      display: flex;
@@ -367,7 +388,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
  .nav-container ul li {
      list-style: none;
      font-size: 1rem;
-        background:  var(--bkg-dark);
+     /*   background:  var(--bkg-dark); */
 }
  .nav-container li {
      display: inherit;
@@ -386,12 +407,13 @@ Use it to make something cool, have fun, and share what you've learned with othe
 }
  .nav-container a {
      padding: 5px 8px;
+     opacity: 1;
+     text-decoration: none;
 }
-/* Content below nav can be wrapped in `main` to allow for z-index */
- main {
-     position: relative;
-     z-index: 1;
+ .nav-container a:hover{
+    text-decoration: underline;
 }
+
 /* ************************************************** V - WP Requires */
 #wp-calendar {
     table-layout:fixed;
@@ -402,21 +424,65 @@ Use it to make something cool, have fun, and share what you've learned with othe
     border-right:thin solid #ddd;
 }
 /* ************************************************** VI - Media Queries */
- @media all and (min-width: 1024px) {
-     .nav-container {
-         position: relative;
-         z-index: 99999;
+
+.page-nav-wrapper.is-open {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+@media (max-width: 979px) {
+  .page-nav-wrapper {
+    display: none;
+  }
+}
+
+.menu-toggle {
+  min-height: 60px;
+  min-width: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  border-radius: 50%;
+  outline: none;
+}
+
+@media (min-width: 979px) {
+  .menu-toggle {
+    display: none;
+  }
+}
+
+@media screen and ( max-width: 600px ){
+    .site-search{
+        margin-left: 30px;
+        top: -1.222em;
+    }
+}
+@media all and (min-width: 980px) {
+    .nav-container {
+        position: relative;
+        z-index: 99999;
+        border-bottom: 2px solid #ddd;
+        padding-top: 0;
     }
      .nav-container ul {
-         justify-content: start;
+         justify-content: space-between;
          flex-direction: row;
          flex-wrap: wrap;
     }
      .nav-container a {
-         padding: 8px 12px;
-         background: var(--navback);
-         border: thin solid #aaa;
-         width: calc( 140px + 2vw );
+         padding: 10px 12px;
+         background: #f9f9f9; /*var(--navback);*/
+         border: thin solid transparent;
+         width: calc( 150px + 2vw );
          min-height: 2.67em;
          height: fit-content;
          white-space: pre-line;
@@ -427,12 +493,13 @@ Use it to make something cool, have fun, and share what you've learned with othe
     }
      .nav-container ul li {
          font-size: .825rem;
-        /* justify-content: space-between;
-         */
-        ;
     }
      .nav-container ul li ul li a {
-         border: 1px solid rgba(15,15,15,.96);
+         border-top: 1px dotted rgba(165,165,165,.76);
+         border-right: 1px solid rgba(165,165,165,.76);
+         border-bottom: 1px solid rgba(165,165,165,.76);
+         border-left: 1px solid rgba(165,165,165,.76);
+         font-size: .9rem;
     }
      .nav-container ul li ul ul {
          z-index: 99990;
@@ -461,6 +528,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
          visibility: hidden;
          opacity: 0;
          transition: visibility 0s linear 400ms, opacity 400ms;
+         margin-left: 3em;
     }
      .nav-container ul li ul li:hover li, .nav-container ul li ul li:focus li, .nav-container ul li ul li:focus-within li {
          visibility: visible;
@@ -469,6 +537,9 @@ Use it to make something cool, have fun, and share what you've learned with othe
     }
     .site-footer{
         flex-direction: row;
+    }
+    .site-search{
+        position: relative;
     }
 }
  

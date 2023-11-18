@@ -279,7 +279,7 @@ function lunar_theme_enqueue_styles()
     }
     wp_enqueue_script(
 		'lunar-script',
-		get_template_directory_uri() . '/rels/lunar-scripts.js',
+		get_template_directory_uri() . '/rels/lunar-front-end.js',
 		array(),
 		LUNAR_VER,
 		true

@@ -43,7 +43,7 @@ function lunar_theme_customizer_css()
          $hdheight = get_theme_mod( 'lunar_heading_height', '70' );
          $hdbackgrnd = get_theme_mod( 'lunar_heading_background', '' );
           echo '@media screen and ( min-width: 980px ){
-          .lunar-width-control{max-width: ' . esc_attr( $pgwidth ) . 'px;margin: 0 auto; }
+          .lunar-width-control{width: ' . esc_attr( $pgwidth ) . 'px;margin: 0 auto; }
           .site-heading{height: ' . esc_attr( $hdheight ) . 'px;}
           }
           .site-heading{ background: url( ' . $hdbackgrnd . ' );background-repeat:no-repeat;}';
