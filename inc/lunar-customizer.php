@@ -65,10 +65,7 @@ function lunar_register_theme_customizer_setup($wp_customize)
 		'section'      => 'lunar_page_layout',
 		'settings'     => 'lunar_page_width',
 		'type'          => 'number',
-	    'input_attrs' => array(
-                                'min' => 280,
-                                'max' => 9999
-                                ),
+	    'input_attrs' => array( 'min' => 280,  'max' => 9999 ),
 		'description' => __( 'Width min is 280px and max is 9999px.', 'lunar')
 	));
 	// Heading background
@@ -99,10 +96,7 @@ function lunar_register_theme_customizer_setup($wp_customize)
 		'section'      => 'lunar_page_layout',
 		'settings'     => 'lunar_heading_height',
 		'type'          => 'number',
-	    'input_attrs' => array(
-                                'min' => 0,
-                                'max' => 9999
-                                ),
+	    'input_attrs' => array( 'min' => 0, 'max' => 9999 ),
 		'description' => __( 'Height min is 0px and max is 9999px.', 'lunar')
 	));
 	// lunar_number_charas
@@ -118,10 +112,7 @@ function lunar_register_theme_customizer_setup($wp_customize)
 		'section'      => 'lunar_page_layout',
 		'settings'     => 'lunar_number_charas',
 		'type'          => 'number',
-	    'input_attrs' => array(
-                                'min' => 1,
-                                'max' => 9999
-                                ),
+	    'input_attrs' => array( 'min' => 1, 'max' => 9999 ),
 		'description' => __( 'Width min is 1 and max is 9999px.', 'lunar')
 	));
     /*

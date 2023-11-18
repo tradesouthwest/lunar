@@ -46,7 +46,7 @@ function lunar_theme_customizer_css()
           .lunar-width-control{width: ' . esc_attr( $pgwidth ) . 'px;margin: 0 auto; }
           .site-heading{height: ' . esc_attr( $hdheight ) . 'px;}
           }
-          .site-heading{ background: url( ' . $hdbackgrnd . ' );background-repeat:no-repeat;}';
+          .site-heading{ background: url( ' . esc_attr( $hdbackgrnd ) . ' );background-repeat:no-repeat;}';
 
     endif;
     echo '</style>';
