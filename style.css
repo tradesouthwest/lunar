@@ -423,6 +423,13 @@ Use it to make something cool, have fun, and share what you've learned with othe
     border-top: thin solid #ddd;
     border-right:thin solid #ddd;
 }
+.comment-form label + input,
+.comment-form label + textarea,
+.comment-form label + select {
+	display: flex;
+	flex-direction: column;
+	border: 1px solid #818181;
+}
 /* ************************************************** VI - Media Queries */
 
 .page-nav-wrapper.is-open {
