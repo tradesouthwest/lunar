@@ -15,19 +15,18 @@
 
 get_header(); ?>
 
-<section class="container lunar-width-control">
-    <div class="content">
+<div class="container lunar-width-control">
+    <main id="sitecontent" class="content">
 
         <?php get_template_part( 'post', 'content' ); ?>
 
-    </div>
+    </main>
      
-        <div class="sidebar">
+        <section class="sidebar">
 
             <?php get_sidebar(); ?>
                     	
-        </div>
-
-</section>
+        </section>
+</div>
 
 <?php get_footer(); ?>

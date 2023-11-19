@@ -11,7 +11,7 @@
          
              <header class="article-heading">
              
-             <h3><?php the_title(); ?></h3>
+             <h2><?php the_title(); ?></h2>
              
              </header>
 
