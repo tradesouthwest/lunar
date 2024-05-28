@@ -165,6 +165,9 @@ Use it to make something cool, have fun, and share what you've learned with othe
      max-width: 100%;
     /* Adhere to container width. vertical-align: middle; */
 }
+.lunar-content figure img{
+	max-width: 94%;
+}
  .screen-reader-text {
      clip: rect(1px, 1px, 1px, 1px);
      height: 1px;
@@ -429,6 +432,22 @@ Use it to make something cool, have fun, and share what you've learned with othe
 	display: flex;
 	flex-direction: column;
 	border: 1px solid #818181;
+}
+.wp-caption {
+    max-width: 100%;
+}
+p img.alignright,
+p img.alignleft,
+p img.alignnone,
+p img.aligncenter{
+	display: flex;
+    max-width: calc(100% - 20vw)
+}
+.wp-caption.alignnone,
+.wp-caption.alignleft,
+.wp-caption.alignright,
+.wp-caption.aligncenter {
+  max-width: calc(100% - 20vw)
 }
 /* ************************************************** VI - Media Queries */
 

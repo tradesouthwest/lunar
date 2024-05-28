@@ -25,7 +25,7 @@
  * @package lunar
  * @since 1.0.0
  */
-if ( !defined ( 'LUNAR_VER' ) ) { define ( 'LUNAR_VER', '1.0.0' ); }
+if ( !defined ( 'LUNAR_VER' ) ) { define ( 'LUNAR_VER', '1.0.1' ); }
 // FAST LOADER References ( find @#id in DocBlocks )
 // ------------------------- Actions ---------------------------
 // A1
@@ -155,9 +155,9 @@ function lunar_theme_widgets_init()
 
 	register_sidebar(
 		array(
-			'name'          => __( 'Footer Section One', 'lunar' ),
+			'name'          => __( 'Footer Section One', 'solo' ),
 			'id'            => 'footer-one',
-			'description'   => __( 'Appears at the bottom of the content on posts and pages.', 'lunar' ),
+			'description'   => __( 'Appears at the bottom of the content on posts and pages.', 'solo' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
@@ -167,9 +167,9 @@ function lunar_theme_widgets_init()
 
 	register_sidebar(
 		array(
-			'name'          => __( 'Footer Section Two', 'lunar' ),
+			'name'          => __( 'Footer Section Two', 'solo' ),
 			'id'            => 'footer-two',
-			'description'   => __( 'Appears at the bottom of the content on posts and pages.', 'lunar' ),
+			'description'   => __( 'Appears at the bottom of the content on posts and pages.', 'solo' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
@@ -179,9 +179,9 @@ function lunar_theme_widgets_init()
 
     register_sidebar(
 		array(
-			'name'          => __( 'Footer Section Three', 'lunar' ),
+			'name'          => __( 'Footer Section Three', 'solo' ),
 			'id'            => 'footer-three',
-			'description'   => __( 'Appears at the bottom of the content on posts and pages.', 'lunar' ),
+			'description'   => __( 'Appears at the bottom of the content on posts and pages.', 'solo' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
@@ -252,7 +252,7 @@ function lunar_metafooter_short_render()
         <em><?php echo esc_html( get_the_author() ); ?></em></small></p>
     </aside>
             <?php
-            echo wp_kses_post( ob_get_clean() );
+            echo ob_get_clean();
 }
 
 /**
